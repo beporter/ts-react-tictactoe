@@ -41,3 +41,4 @@ A list of the resources used during this project (all sure to change and become 
 * [The Database](https://github.com/ssunday/the_database) - A react+ts project by [@ssunday](https://github.com/ssunday) for reference.
 * [Create React App getting started](https://facebook.github.io/create-react-app/docs/getting-started) guide from Facebook.
 * [VSCode Jest Plugin](https://github.com/jest-community/vscode-jest)
+* [Getting Started with React and Typescript by hand](https://www.pluralsight.com/guides/typescript-react-getting-started)
