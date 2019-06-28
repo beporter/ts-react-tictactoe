@@ -22,12 +22,12 @@ These are the steps involved in getting the projected kicked off. When this has 
     * Switch to the dir where you keep your project folders: `cd ~/Projects` (:warning: example)
     * Init the project: `npx create-react-app tr-react-tictactoe --typescript && cd tr-react-tictactoe`
     * Update the `package.json` file: `npm install --save typescript @types/node @types/react @types/react-dom @types/jest`
-    * Init the git repo:
-        * `git init`
+    * Prep for testing: `npm install --save-dev enzyme enzyme-adapter-react-16 react-test-renderer`
+    * Connect the git repo to the remote:
         * `git remote add origin git@github.com:beporter/ts-react-tictactoe.git`
-        * `git commit -a -m 'Initial create-react-app import.'
+        * `git checkout -t master`
+        * `git commit -a -m 'Initial create-react-app import.'`
         * `git push origin master`
-
     * Clone this repo: `git clone  && cd ts-react-tictactoe`
 
 
@@ -40,3 +40,4 @@ A list of the resources used during this project (all sure to change and become 
 * [React + Typescript Cheatsheets list](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets) from the Typescript Cheatsheets Github repo.
 * [The Database](https://github.com/ssunday/the_database) - A react+ts project by [@ssunday](https://github.com/ssunday) for reference.
 * [Create React App getting started](https://facebook.github.io/create-react-app/docs/getting-started) guide from Facebook.
+* [VSCode Jest Plugin](https://github.com/jest-community/vscode-jest)
