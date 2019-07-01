@@ -1,5 +1,13 @@
-const Square = require("../src/Square");
+import { shallow } from "enzyme";
+import React from "react";
+import { Square } from "../src/Square";
 
-test("outputs the provided value", () => {
-  expect(1).toBe(1);
+describe("<Square />", () => {
+  test("outputs the provided value", () => {
+    const mark = "🐶";
+    const wrapper = shallow(<Square value={mark} />);
+
+    expect(wrapper.find("button").hasClass("square")).toBe(true);
+    expect(wrapper.text()).toBe(mark);
+  });
 });
