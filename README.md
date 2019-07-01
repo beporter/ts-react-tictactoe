@@ -15,8 +15,8 @@ Project planning is handled in a shared [Trello board](https://trello.com/invite
 
 ### Uses
 
-* Typescript 3
-* React 12
+* Typescript 3.5
+* React 16
 
 
 ## Installation

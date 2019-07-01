@@ -30,11 +30,13 @@
       "react-app-polyfill/jsdom",
       "<rootDir>/spec/setupTests.tsx"
     ],
-    "setupFilesAfterEnv": [],
+    "setupFilesAfterEnv": [
+      "jest-enzyme"
+    ],
     "testMatch": [
       "<rootDir>/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
-    "testEnvironment": "jest-environment-jsdom-fourteen",
+    "testEnvironment": "enzyme",
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
       "^.+\\.module\\.(css|sass|scss)$"
@@ -95,6 +97,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.8.0",
+    "jest-environment-enzyme": "^7.0.2",
     "jest-enzyme": "^7.0.2",
     "react-test-renderer": "^16.8.6",
     "ts-jest": "^24.0.2",
