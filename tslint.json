@@ -1,5 +1,4 @@
 {
-    "defaultSeverity": "error",
     "extends": [],
     "jsRules": {},
     "rulesDirectory": [],
@@ -75,6 +74,7 @@
       ],
       "quotemark": [
         true,
+        "single",
         "jsx-double",
         "avoid-escape"
       ],
