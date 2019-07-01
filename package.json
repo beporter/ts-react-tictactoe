@@ -29,7 +29,8 @@
     "coveragePathIgnorePatterns": [
       "<rootDir>/build/",
       "<rootDir>/spec/",
-      "<rootDir>/node_modules/"
+      "<rootDir>/node_modules/",
+      "src/index.tsx"
     ],
     "coverageThreshold": {
       "global": {
