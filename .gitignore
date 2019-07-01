@@ -69,3 +69,4 @@ typings/
 
 # misc
 .DS_Store
+.vscode/
