@@ -2,6 +2,8 @@
 
 This project is a part of my [8th Light](https://8thlight.com/) apprenticeship skill-broadening process.
 
+[![CircleCI](https://circleci.com/gh/beporter/ts-react-tictactoe.svg?style=svg)](https://circleci.com/gh/beporter/ts-react-tictactoe)
+
 
 ## Requirements
 
