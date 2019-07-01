@@ -17,6 +17,7 @@
     "test": "jest || [ \"$NODE_QUIET\" ]",
     "test:coverage": "jest --coverage",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' 'spec/**/*.{ts,tsx}' || [ \"$NODE_QUIET\" ]",
+    "lint:fix": "tslint -c tslint.json --fix 'src/**/*.{ts,tsx}' 'spec/**/*.{ts,tsx}'",
     "ci": "scripts/ci.sh"
   },
   "eslintConfig": {
