@@ -22,7 +22,7 @@ These are the steps involved in getting the projected kicked off. When this has 
     * Init the project: `mkdir ts-react-tictactoe && cd tr-react-tictactoe && npm init`
     * Update the `package.json` file with required packages: `npm install --save react react-dom typescript @types/node @types/react @types/react-dom`
     * Prep build tooling: `npm install --save-dev webpack webpack-cli webpack-dev-server ts-loader`
-    * Prep for testing: `npm install --save-dev jest @types/jest ts-jest enzyme @types/enzyme enzyme-adapter-react-16 @types/enzyme-adapter-react-16 react-test-renderer jest-enzyme jest-environment-enzyme tslint`
+    * Prep for testing: `npm install --save-dev jest @types/jest ts-jest enzyme @types/enzyme enzyme-adapter-react-16 @types/enzyme-adapter-react-16 react-test-renderer jest-enzyme jest-environment-enzyme jest-junit tslint`
     * Connect the git repo to the remote:
         * `git remote add origin git@github.com:beporter/ts-react-tictactoe.git`
         * `git checkout -t master`
