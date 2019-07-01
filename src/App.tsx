@@ -1,7 +1,7 @@
 import React from 'react';
 //import './App.css';
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -16,5 +16,3 @@ O | X |
     </div>
   );
 }
-
-export default App;
