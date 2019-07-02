@@ -37,7 +37,8 @@ jobs:
       - run: npm run ci
 
       - store_test_results:
-          path: ~/repo/build/junit.xml
+          path: ~/repo/build/test_results/
 
       - store_artifacts:
           path: ~/repo/build/coverage/
+          destination: coverage
