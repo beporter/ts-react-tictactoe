@@ -8,6 +8,6 @@
   --reporters=default \
   --reporters=jest-junit \
   --collectCoverage=true \
-  --coverageDirectory=build/coverage \
+  --coverageDirectory=build/coverage/ \
   --coverageReporters=text \
   --coverageReporters=html
