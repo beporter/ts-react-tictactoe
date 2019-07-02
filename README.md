@@ -1,8 +1,6 @@
 # Tic-tac-toe implemented in TypeScript + React
 
-This project is a part of my [8th Light](https://8thlight.com/) apprenticeship skill-broadening process.
-
-Project planning is handled in a shared [Trello board](https://trello.com/invite/b/UXQXOKG5/9b2d78c40159754490d761d339f6d742/reacttypescript-tic-tac-toe).
+This project is a part of my [8th Light](https://8thlight.com/) apprenticeship skill-broadening process. There is an accompanying [NOTES.md](NOTES.md) file that documents the bootstrapping process to get this project rolling from nothing.
 
 [![CircleCI](https://circleci.com/gh/beporter/ts-react-tictactoe.svg?style=svg)](https://circleci.com/gh/beporter/ts-react-tictactoe)
 
