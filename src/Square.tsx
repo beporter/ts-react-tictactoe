@@ -4,7 +4,7 @@ type Props = {
   value: string;
 };
 
-export const Square = (props: Props) => {
+export const Square = (props: Props): JSX.Element => {
   return (
     <button className="square">
       {props.value}
