@@ -3,10 +3,15 @@ import React from 'react';
 import { Game } from '../src/Game';
 
 describe('<Game />', () => {
-  test('does something', () => {
+  test('contains a <Board />', () => {
     const wrapper = shallow(<Game />);
 
-    // expect(wrapper.find('button').hasClass('square')).toBe(true);
-    // expect(wrapper.text()).toBe(mark);
+    expect(wrapper.find('Board')).toHaveLength(1);
+  });
+
+  test('says who is next', () => {
+    const wrapper = shallow(<Game />);
+
+    expect(wrapper.text()).toContain ('X');
   });
 });
