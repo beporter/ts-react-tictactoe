@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const env = process.env["NODE_ENV"] || "development";
 
 module.exports = {
@@ -11,6 +12,15 @@ module.exports = {
             test: /\.tsx?$/,
             use: 'ts-loader',
             exclude: /node_modules/
+          },
+          {
+            test: /\.scss$/,
+            use: [
+              // fallback to style-loader in development
+              env !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+              "css-loader",
+              "sass-loader"
+            ]
           }
         ]
     },
@@ -22,6 +32,10 @@ module.exports = {
             //favicon: "src/assets/images/favicon.ico",
             inject: "body",
             template: "./public/index.html"
+        }),
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
         })
     ],
     output: {
