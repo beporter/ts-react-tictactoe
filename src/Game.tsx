@@ -10,7 +10,7 @@ type State = {
 
 export const Game: FunctionComponent<Props> = (props) => {
   const [state, setState] = useState<State>({
-    board: Array(9).fill(''),
+    board: Array(9).fill('*'),
     xToPlay: true
   });
 
