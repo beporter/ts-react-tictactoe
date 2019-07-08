@@ -1,0 +1,29 @@
+.board {
+  margin: 0;
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  margin: 0 auto;
+  max-width: calc(100vh - 99px);
+  max-height: calc(100vw - 99px);
+
+  .octothorp {
+    border: solid 2px $color-third;
+
+    // Ref: https://css-tricks.com/useful-nth-child-recipies/
+    &:nth-child(-n+3) {
+      border-top: solid 1px transparent;
+    }
+    &:nth-child(3n+1) {
+      border-left: solid 1px transparent;
+    }
+    &:nth-child(n+7) {
+      border-bottom: solid 1px transparent;
+    }
+    &:nth-child(3n) {
+      border-right: solid 1px transparent;
+    }
+  }
+}
