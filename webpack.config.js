@@ -16,10 +16,19 @@ module.exports = {
           {
             test: /\.scss$/,
             use: [
-              // fallback to style-loader in development
-              env !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
-              "css-loader",
-              "sass-loader"
+              {
+                // fallback to style-loader in development
+                loader: env !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader
+              },
+              {
+                loader: "css-loader"
+              },
+              {
+                loader: "sass-loader",
+                options: {
+                  implementation: require("sass")
+                }
+              }
             ]
           }
         ]
