@@ -111,6 +111,7 @@
     "jest-enzyme": "^7.0.2",
     "jest-junit": "^6.4.0",
     "react-test-renderer": "^16.8.6",
+    "sass": "^1.22.3",
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.4",
     "tslint": "^5.18.0",

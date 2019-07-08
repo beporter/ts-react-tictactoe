@@ -1,0 +1,46 @@
+// Ref: https://fvsch.com/styling-buttons/
+
+@mixin button-reset {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+button {
+  @include button-reset;
+
+  /* default for <button>, but useful for <a> */
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+
+  /* create a small space when buttons wrap on 2 lines */
+  // margin: 2px 0;
+  margin: 0;
+
+  /* invisible border (will be colored on hover/focus) */
+  border: solid 1px transparent;
+  border-radius: 4px;
+
+  /* size comes from text & padding (no width/height) */
+  // padding: 0.5em 1em;
+  padding: 0;
+
+  /* make sure colors have enough contrast! */
+  color: $color-text;
+  background-color: $color-transparent;
+
+  &:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+  }
+
+  &:hover {
+    //color: ;
+    border-color: $color-third;
+    background-color: $color-accent;
+  }
+}

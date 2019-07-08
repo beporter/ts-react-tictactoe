@@ -1,0 +1,21 @@
+.square {
+  // Ref: https://css-tricks.com/aspect-ratio-boxes/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  padding-top: 100%;
+
+  button {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: calc(100% + 10vh);
+  }
+}

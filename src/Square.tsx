@@ -6,8 +6,10 @@ type Props = {
 
 export const Square = (props: Props): JSX.Element => {
   return (
-    <button className="square">
-      {props.value}
-    </button>
+    <div className="square">
+      <button>
+        {props.value}
+      </button>
+    </div>
   );
 };

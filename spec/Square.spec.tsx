@@ -7,7 +7,7 @@ describe('<Square />', () => {
     const mark = '🐶';
     const wrapper = shallow(<Square value={mark} />);
 
-    expect(wrapper.find('button').hasClass('square')).toBe(true);
+    expect(wrapper.find('div').hasClass('square')).toBe(true);
     expect(wrapper.text()).toBe(mark);
   });
 });
