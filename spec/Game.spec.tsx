@@ -12,6 +12,6 @@ describe('<Game />', () => {
   test('says who is next', () => {
     const wrapper = shallow(<Game />);
 
-    expect(wrapper.text()).toContain ('X');
+    expect(wrapper.text()).toContain ('Next to play: X');
   });
 });
