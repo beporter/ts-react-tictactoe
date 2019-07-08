@@ -16,23 +16,19 @@ export class Board extends React.Component<Props> {
 
   public render(): JSX.Element {
     return (
-      <table className="board">
-        <tr>
-          <td>{this.renderSquare(this.props.squares[0])}</td>
-          <td>{this.renderSquare(this.props.squares[1])}</td>
-          <td>{this.renderSquare(this.props.squares[2])}</td>
-        </tr>
-        <tr>
-          <td>{this.renderSquare(this.props.squares[3])}</td>
-          <td>{this.renderSquare(this.props.squares[4])}</td>
-          <td>{this.renderSquare(this.props.squares[5])}</td>
-        </tr>
-        <tr>
-          <td>{this.renderSquare(this.props.squares[6])}</td>
-          <td>{this.renderSquare(this.props.squares[7])}</td>
-          <td>{this.renderSquare(this.props.squares[8])}</td>
-        </tr>
-      </table>
+      <div className="board">
+        <div className="octothorp">{this.renderSquare(this.props.squares[0])}</div>
+        <div className="octothorp">{this.renderSquare(this.props.squares[1])}</div>
+        <div className="octothorp">{this.renderSquare(this.props.squares[2])}</div>
+
+        <div className="octothorp">{this.renderSquare(this.props.squares[3])}</div>
+        <div className="octothorp">{this.renderSquare(this.props.squares[4])}</div>
+        <div className="octothorp">{this.renderSquare(this.props.squares[5])}</div>
+
+        <div className="octothorp">{this.renderSquare(this.props.squares[6])}</div>
+        <div className="octothorp">{this.renderSquare(this.props.squares[7])}</div>
+        <div className="octothorp">{this.renderSquare(this.props.squares[8])}</div>
+      </div>
     );
   }
 }
