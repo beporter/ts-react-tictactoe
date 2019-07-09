@@ -1,34 +1,21 @@
-import * as React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Square } from './Square';
 
 type Props = {
   squares: string[];
+  clickHandler: Function;
 };
 
-export class Board extends React.Component<Props> {
-  public constructor(props: Props) {
-    super(props);
-  }
+export const Board: FunctionComponent<Props> = (props) => {
+  const renderSquare = function(mark: string, pos: number): JSX.Element {
+    return <Square value={mark} clickHandler={() => props.clickHandler(pos)} />;
+  };
 
-  protected renderSquare(mark: string): JSX.Element {
-    return <Square value={mark} />;
-  }
+  const board = Array.from(Array(9).keys()).map(
+    (i: number) => <div className="octothorp" key={i}>{renderSquare(props.squares[i], i)}</div>
+  );
 
-  public render(): JSX.Element {
-    return (
-      <div className="board">
-        <div className="octothorp">{this.renderSquare(this.props.squares[0])}</div>
-        <div className="octothorp">{this.renderSquare(this.props.squares[1])}</div>
-        <div className="octothorp">{this.renderSquare(this.props.squares[2])}</div>
-
-        <div className="octothorp">{this.renderSquare(this.props.squares[3])}</div>
-        <div className="octothorp">{this.renderSquare(this.props.squares[4])}</div>
-        <div className="octothorp">{this.renderSquare(this.props.squares[5])}</div>
-
-        <div className="octothorp">{this.renderSquare(this.props.squares[6])}</div>
-        <div className="octothorp">{this.renderSquare(this.props.squares[7])}</div>
-        <div className="octothorp">{this.renderSquare(this.props.squares[8])}</div>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="board">{board}</div>
+  );
+};
