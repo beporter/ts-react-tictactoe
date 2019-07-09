@@ -1,11 +1,13 @@
 import React from 'react';
 import { Game } from './Game';
-// import "./App.css";
+import { GameProvider } from './GameContext';
 
 export const App: React.FC = () => {
   return (
-    <div className="App">
-      <Game />
+    <div className="app">
+      <GameProvider>
+        <Game />
+      </GameProvider>
     </div>
   );
 };
