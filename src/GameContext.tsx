@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 type Action = {type: 'move', position: number};
 type Props = {children: React.ReactNode};
@@ -12,7 +12,7 @@ const GameStateContext = React.createContext<State | undefined>(undefined);
 const GameDispatchContext = React.createContext<Dispatch | undefined>(undefined);
 
 function gameReducer(state: State, action: Action): State {
-// tslint:disable-next-line: switch-default
+  // tslint:disable-next-line: switch-default
   switch (action.type) {
     case 'move': {
       // @TODO: Mark the board, change xToPlay.
@@ -38,7 +38,7 @@ function GameProvider({children}: Props): JSX.Element {
 }
 
 function useGameState(): State {
-  const context = useContext(GameStateContext);
+  const context = React.useContext(GameStateContext);
   /* istanbul ignore next */
   if (context === undefined) {
     throw new Error('useGameState must be used within a <GameProvider>');
@@ -47,7 +47,7 @@ function useGameState(): State {
 }
 
 function useGameDispatch(): Dispatch {
-  const context = useContext(GameDispatchContext);
+  const context = React.useContext(GameDispatchContext);
   /* istanbul ignore next */
   if (context === undefined) {
     throw new Error('useGameDispatch must be used within a <GameProvider>');
