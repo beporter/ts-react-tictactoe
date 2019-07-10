@@ -15,15 +15,16 @@ function gameReducer(state: State, action: Action): State {
   // tslint:disable-next-line: switch-default
   switch (action.type) {
     case 'move': {
-      // @TODO: Mark the board, change xToPlay.
-      return state;
+      let board = state.board;
+      board[action.position] = state.xToPlay ? 'X' : 'O';
+      return Object.assign({}, state, {xToPlay: !state.xToPlay, board});
     }
   }
 }
 
 function GameProvider({children}: Props): JSX.Element {
   const defaults = {
-    board: Array(9).fill('*'),
+    board: Array(9).fill(''),
     xToPlay: true
   };
   const [state, dispatch] = React.useReducer(gameReducer, defaults);
