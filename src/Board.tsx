@@ -3,12 +3,12 @@ import { Square } from './Square';
 
 type Props = {
   squares: string[];
-  clickHandler: Function;
+  clickHandler: (position: number) => void;
 };
 
 export const Board = (props: Props): JSX.Element => {
-  const renderSquare = function(mark: string, pos: number): JSX.Element {
-    return <Square value={mark} clickHandler={() => props.clickHandler(pos)} />;
+  const renderSquare = (mark: string, pos: number): JSX.Element => {
+    return <Square value={mark} clickHandler={(event) => props.clickHandler(pos)} />;
   };
 
   const board = Array.from(Array(9).keys()).map(
