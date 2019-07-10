@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Square } from './Square';
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
   clickHandler: Function;
 };
 
-export const Board: FunctionComponent<Props> = (props) => {
+export const Board = (props: Props): JSX.Element => {
   const renderSquare = function(mark: string, pos: number): JSX.Element {
     return <Square value={mark} clickHandler={() => props.clickHandler(pos)} />;
   };

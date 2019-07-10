@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Board } from './Board';
 import { useGameDispatch, useGameState } from './GameContext';
 
 type Props = {};
 
-export const Game: FunctionComponent<Props> = (props) => {
+export const Game = (props: Props): JSX.Element => {
   const state = useGameState();
   const dispatch = useGameDispatch();
   const clickHandler = (position: number): void => {
