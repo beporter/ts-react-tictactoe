@@ -1,42 +1,29 @@
-import { mount, shallow } from 'enzyme';
+import * as Enzyme from 'enzyme';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { Board } from '../src/Board';
-import * as GameContext from '../src/GameContext';
-
-const TestBoard = () => {
-  const state = GameContext.useGameState();
-  return (
-    <Board squares={state.board} />
-  );
-};
 
 describe('<Board />', () => {
+  const squares = Array(9).fill(' ');
+  const onMove = jest.fn();
+
   test('has nine squares', () => {
-    const wrapper = mount(<GameContext.GameProvider><TestBoard /></GameContext.GameProvider>);
+    const wrapper = Enzyme.mount(<Board squares={squares} onMove={onMove} />);
 
     expect(wrapper.find('Square')).toHaveLength(9);
-
     wrapper.unmount();
   });
 
-  test('injects click handler into <Square>s', () => {
-    const spy = jest.spyOn(GameContext, 'useGameDispatch');
-    const wrapper = mount(<GameContext.GameProvider><TestBoard /></GameContext.GameProvider>);
+  test('injects click handler into <Square>', () => {
+    const wrapper = Enzyme.mount(<Board squares={squares} onMove={onMove} />);
     const btn0 = wrapper.find('button').at(0);
     const btn1 = wrapper.find('button').at(1);
 
-    act(() => {
-      btn0.prop('onClick')(null); // Place an `X` top-left.
-      btn0.prop('onClick')(null); // No-op
-      btn1.prop('onClick')(null); // Place an `O` top-middle.
-      wrapper.update();
-    });
-  console.log(wrapper.find('button').debug());
+    btn0.simulate('click', { event: { preventDefault: () => {} } });
 
-    expect(btn0.text()).toEqual('X');
-    expect(btn1.text()).toEqual('O');
-    expect(spy).toHaveBeenCalled();
+    expect(onMove).toHaveBeenCalledWith(0);
+
+    btn1.simulate('click', { event: { preventDefault: () => {} } });
+    expect(onMove).toHaveBeenCalledWith(1);
 
     wrapper.unmount();
   });
