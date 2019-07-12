@@ -1,34 +1,28 @@
-import * as React from 'react';
+import React from 'react';
+import { useGameDispatch } from './GameContext';
 import { Square } from './Square';
 
 type Props = {
   squares: string[];
 };
 
-export class Board extends React.Component<Props> {
-  public constructor(props: Props) {
-    super(props);
-  }
+export const Board = (props: Props): JSX.Element => {
+  const dispatch = useGameDispatch();
 
-  protected renderSquare(mark: string): JSX.Element {
-    return <Square value={mark} />;
-  }
-
-  public render(): JSX.Element {
+  const board = props.squares.map((value: string, index: number) => {
+    const callback = (event: React.MouseEvent<HTMLButtonElement>) => {
+      if (value === '') {
+        return dispatch({type: 'move', position: index});
+      }
+    };
     return (
-      <div className="board">
-        <div className="octothorp">{this.renderSquare(this.props.squares[0])}</div>
-        <div className="octothorp">{this.renderSquare(this.props.squares[1])}</div>
-        <div className="octothorp">{this.renderSquare(this.props.squares[2])}</div>
-
-        <div className="octothorp">{this.renderSquare(this.props.squares[3])}</div>
-        <div className="octothorp">{this.renderSquare(this.props.squares[4])}</div>
-        <div className="octothorp">{this.renderSquare(this.props.squares[5])}</div>
-
-        <div className="octothorp">{this.renderSquare(this.props.squares[6])}</div>
-        <div className="octothorp">{this.renderSquare(this.props.squares[7])}</div>
-        <div className="octothorp">{this.renderSquare(this.props.squares[8])}</div>
+      <div className="octothorp" key={index}>
+        <Square value={value} clickHandler={callback} />
       </div>
     );
-  }
-}
+  });
+
+  return (
+    <div className="board">{board}</div>
+  );
+};

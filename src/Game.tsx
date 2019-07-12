@@ -1,21 +1,14 @@
-import React, { FunctionComponent, useState } from 'react';
+import React from 'react';
 import { Board } from './Board';
+import { useGameState } from './GameContext';
 
 type Props = {};
 
-type State = {
-  board: string[],
-  xToPlay: boolean
-};
-
-export const Game: FunctionComponent<Props> = (props) => {
-  const [state] = useState<State>({
-    board: Array(9).fill('*'),
-    xToPlay: true
-  });
+export const Game = (props: Props): JSX.Element => {
+  const state = useGameState();
 
   return (
-    <div>
+    <div className="game">
       <p>Next to play: {state.xToPlay ? 'X' : 'O'}</p>
       <Board squares={state.board} />
     </div>

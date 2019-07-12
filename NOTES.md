@@ -44,3 +44,4 @@ A list of the resources used during this project (all sure to change and become 
 * [Getting Started with React and Typescript by hand](https://www.pluralsight.com/guides/typescript-react-getting-started) - how to get going without using `create-react-app`.
 * [React's useCallback and useMemo Hooks by Example](https://nikgrozev.com/2019/04/07/reacts-usecallback-and-usememo-hooks-by-example/) - Guide on React 16's new hooks.
 * [React Function Components by Example](https://www.robinwieruch.de/react-function-component/) - Moving away from Typescript classes to pure `React.FunctionComponent`s, including state management.
+* [How to Use React Context Effectively](https://kentcdodds.com/blog/how-to-use-react-context-effectively)
