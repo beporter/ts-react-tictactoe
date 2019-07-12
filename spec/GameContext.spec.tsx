@@ -9,9 +9,6 @@ const ParentWrapper = (props) => {
 };
 
 const ChildConsumer = (props) => {
-  const state = useGameState();
-  const dispatch = useGameDispatch();
-  dispatch({type: 'move', position: 2});
   return (
     <div>foo</div>
   );
@@ -19,6 +16,10 @@ const ChildConsumer = (props) => {
 
 describe('GameContext', () => {
   test('it renders children content', () => {
+    jest.spyOn(React, 'useContext')
+      .mockReturnValueOnce({xToPlay: true, board: []})
+      .mockReturnValueOnce(() => undefined);
+
     const wrapper = mount(<ParentWrapper><ChildConsumer /></ParentWrapper>);
 
     expect(wrapper.text()).toContain('foo');
