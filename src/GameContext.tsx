@@ -24,7 +24,7 @@ function gameReducer(state: State, action: Action): State {
 
 function GameProvider({children}: Props): JSX.Element {
   const defaults = {
-    board: Array(9).fill(''),
+    board: Array(9).fill(' '),
     xToPlay: true
   };
   const [state, dispatch] = React.useReducer(gameReducer, defaults);

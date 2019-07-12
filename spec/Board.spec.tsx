@@ -1,38 +1,43 @@
 import { mount, shallow } from 'enzyme';
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import { Board } from '../src/Board';
 import * as GameContext from '../src/GameContext';
 
+const TestBoard = () => {
+  const state = GameContext.useGameState();
+  return (
+    <Board squares={state.board} />
+  );
+};
+
 describe('<Board />', () => {
   test('has nine squares', () => {
-    jest.spyOn(React, 'useContext')
-      .mockReturnValueOnce({xToPlay: true, board: ['O', '', '',
-        '', '', '',
-        '', '', ''
-      ]})
-      .mockReturnValueOnce(jest.fn());
-
-    const squares = Array(9).fill(''); // Contents don't matter cause `shallow()`.
-    const wrapper = shallow(<Board squares={squares} />);
+    const wrapper = mount(<GameContext.GameProvider><TestBoard /></GameContext.GameProvider>);
 
     expect(wrapper.find('Square')).toHaveLength(9);
+
+    wrapper.unmount();
   });
 
   test('injects click handler into <Square>s', () => {
     const spy = jest.spyOn(GameContext, 'useGameDispatch');
-    const squares = [
-      'O', '', '',
-      '', '', '',
-      '', '', ''
-    ];
-    const wrapper = mount(<GameContext.GameProvider><Board squares={squares} /></GameContext.GameProvider>);
+    const wrapper = mount(<GameContext.GameProvider><TestBoard /></GameContext.GameProvider>);
+    const btn0 = wrapper.find('button').at(0);
+    const btn1 = wrapper.find('button').at(1);
 
-    wrapper.find('button').first().simulate('click'); // No-op
-    wrapper.find('button').at(2).simulate('click'); // Place an `X` top-middle.
-    wrapper.render();
+    act(() => {
+      btn0.prop('onClick')(null); // Place an `X` top-left.
+      btn0.prop('onClick')(null); // No-op
+      btn1.prop('onClick')(null); // Place an `O` top-middle.
+      wrapper.update();
+    });
+  console.log(wrapper.find('button').debug());
 
-    expect(wrapper.find('Square').first().text()).toEqual('O');
-    expect(wrapper.find('Square').at(2).text()).toEqual('X');
+    expect(btn0.text()).toEqual('X');
+    expect(btn1.text()).toEqual('O');
     expect(spy).toHaveBeenCalled();
+
+    wrapper.unmount();
   });
 });
